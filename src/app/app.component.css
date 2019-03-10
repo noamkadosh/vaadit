@@ -1,0 +1,8 @@
+.app-wrapper {
+height: calc(100vh - 24px);
+}
+
+.content {
+  position: relative;
+  background-color: #fcfcfc;
+}
