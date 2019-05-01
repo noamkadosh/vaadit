@@ -1,0 +1,3 @@
+What's next?
+- Fix cut out shadow on expansion panels items.
+- Start working on next features.

@@ -1,0 +1,61 @@
+<h2>{{ editMode ? 'ערוך תזכורת' : 'הוסף תזכורת' }}</h2>
+<form
+  class="form"
+  [formGroup]="reminderForm"
+  (ngSubmit)="onSubmit()"
+>
+  <mat-form-field>
+    <input
+      type="text"
+      matInput
+      id="desc"
+      class="form-control"
+      formControlName="desc"
+      placeholder="מה להזכיר לך?"
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      id="date"
+      class="form-control"
+      formControlName="date"
+      [matDatepicker]="picker"
+      placeholder="בחר תאריך">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #picker></mat-datepicker>
+  </mat-form-field>
+  <label for="priority" style="display: block; margin-top: 0.7rem; color: gray;">עדיפות</label>
+  <mat-button-toggle-group
+    id="priority"
+    formControlName="priority"
+    style="margin: 0.7rem 0;">
+    <mat-button-toggle value="high">
+      גבוהה
+    </mat-button-toggle>
+    <mat-button-toggle value="medium">
+      בינונית
+    </mat-button-toggle>
+    <mat-button-toggle value="low">
+      נמוכה
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <button
+    color="primary"
+    mat-raised-button
+    matRipple
+    type="submit"
+    class="link-button"
+    [disabled]="!reminderForm.valid">
+    {{ editMode ? 'ערוך' : 'הוסף' }}
+  </button>
+  <button
+    color="warn"
+    mat-raised-button
+    matRipple
+    type="button"
+    class="link-button"
+    (click)="onCancel()"
+  >ביטול
+  </button>
+</form>

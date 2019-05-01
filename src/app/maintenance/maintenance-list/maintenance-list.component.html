@@ -1,0 +1,44 @@
+<mat-expansion-panel
+  *ngFor="let issue of issues; let i = index"
+  style="margin-bottom: 0.8rem;">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{ issue.issue }}
+    </mat-panel-title>
+    <mat-panel-description>
+      {{ issue.getCost() }}₪
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <ng-template matExpansionPanelContent>
+    <p>
+      נכס: {{ issue.getProperty().getAddress() }}
+    </p>
+    <p>
+      חברה מבצעת: {{ issue.getWorkingCompany() }}
+    </p>
+    <p *ngIf="issue.getProperty().getTenant() !== null">
+      דייר: {{ issue.getProperty().getTenant().getName() }}
+      <span class="mat-caption">
+          {{ issue.getProperty().getTenant().getPhone() }}
+        </span>
+    </p>
+    <mat-action-row>
+      <button
+        mat-raised-button
+        matRipple
+        color="primary"
+        (click)="onEditIssue(i)"
+        type="button"
+      >ערוך
+      </button>
+      <button
+        mat-raised-button
+        matRipple
+        color="warn"
+        (click)="onDeleteIssue(i)"
+        type="button"
+      >מחק
+      </button>
+    </mat-action-row>
+  </ng-template>
+</mat-expansion-panel>

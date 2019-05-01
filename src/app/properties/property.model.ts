@@ -2,7 +2,7 @@ import {Tenant} from '../tenants/tenant.model';
 
 export class Property {
   private name: string;
-  readonly address: string;
+  private address: string;
   private rent: number;
   private tenant: Tenant = null;
   occupied = false;
@@ -27,6 +27,21 @@ export class Property {
    */
   setName(name: string) {
     this.name = name;
+  }
+
+  /**
+   * this function returns the address of the property.
+   */
+  getAddress() {
+    return this.address;
+  }
+
+  /**
+   * this function sets the address of the property.
+   * @param address - name to be set.
+   */
+  setAddress(address: string) {
+    this.address = address;
   }
 
   /**

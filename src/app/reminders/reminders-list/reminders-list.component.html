@@ -1,0 +1,44 @@
+<mat-expansion-panel
+  *ngFor="let reminder of reminders; let i = index"
+  style="margin-bottom: 0.8rem">
+  <mat-expansion-panel-header collapsedHeight="4rem">
+    <mat-panel-title>
+        <span
+          matBadge="!"
+          matBadgeSize="small"
+          matBadgeColor="warn"
+          matBadgeOverlap="false"
+          [matBadgeHidden]="!(reminder.getDate() < now)"
+        >{{ reminder.getDescription() }}</span>
+    </mat-panel-title>
+    <mat-panel-description>
+      {{ reminder.getDate().toLocaleDateString('he-IL') }}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <ng-template matExpansionPanelContent>
+    <p>
+    עדיפות: {{ reminder.getPriority() }}
+    </p>
+    <p>
+    מצב: {{ reminder.getStatus() }}
+    </p>
+    <mat-action-row>
+      <button
+        mat-raised-button
+        matRipple
+        color="primary"
+        (click)="onEditReminder(i)"
+        type="button"
+      >ערוך
+      </button>
+      <button
+        mat-raised-button
+        matRipple
+        color="warn"
+        (click)="onDeleteReminder(i)"
+        type="button"
+      >מחק
+      </button>
+    </mat-action-row>
+  </ng-template>
+</mat-expansion-panel>

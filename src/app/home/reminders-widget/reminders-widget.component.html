@@ -1,0 +1,20 @@
+<h2>תזכורות</h2>
+<mat-list role="list">
+  <mat-list-item
+    role="listitem"
+    *ngFor="let reminderEl of nextReminders">
+    <span
+      matBadge="!"
+      matBadgeSize="small"
+      matBadgeColor="warn"
+      matBadgeOverlap="false"
+      [matBadgeHidden]="!(reminderEl.getDate() < now)">
+      {{ reminderEl.getDescription() }}
+    </span>
+    <span
+      class="mat-caption"
+      style="position: absolute; left: 1rem;">
+      {{ reminderEl.getDate().toLocaleDateString('he-IL') }}
+    </span>
+  </mat-list-item>
+</mat-list>

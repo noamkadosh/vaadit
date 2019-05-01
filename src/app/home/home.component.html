@@ -1,0 +1,63 @@
+<div style="height: 35vh">
+  <h2>
+    כספים <br>
+    <span class="mat-caption">{{ date }}</span>
+  </h2>
+  <app-donut-chart
+    [values]="['שולם', 'לתשלום', 'נכס פנוי']"
+    [centerText]="{ name: 'שולם', value: paidValue }"
+    [items]="items"
+    [symbol]="'₪'"
+    dir="ltr"
+  ></app-donut-chart>
+</div>
+<mat-divider style="margin: 2vh 0;"></mat-divider>
+<div style="height: 25vh">
+  <app-reminders-widget></app-reminders-widget>
+</div>
+<mat-divider style="margin: 2vh 0;"></mat-divider>
+<div style="height: 19vh;">
+  <div class="button-row">
+    <button
+      color="primary"
+      mat-raised-button
+      matRipple
+      type="button"
+      matBadge="0"
+      matBadgePosition="after"
+      matBadgeColor="accent"
+      matBadgeDescription="אין הודעות חדשת"
+    >
+      הודעות
+    </button>
+    <button
+      color="primary"
+      mat-raised-button
+      matRipple
+      type="button"
+      routerLink="/reports"
+    >
+      דו״חות
+    </button>
+  </div>
+    <div class="button-row">
+    <button
+      color="primary"
+      mat-raised-button
+      matRipple
+      type="button"
+      routerLink="/properties/new"
+    >
+      הוסף נכס
+    </button>
+    <button
+      color="primary"
+      mat-raised-button
+      matRipple
+      type="button"
+      routerLink="/tenants/new"
+    >
+      הוסף דייר
+    </button>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<h2>{{ editMode ? 'ערוך נכס' : 'הוסף נכס' }}</h2>
+<form
+  class="form"
+  [formGroup]="propertyForm"
+  (ngSubmit)="onSubmit()"
+>
+  <mat-form-field>
+        <input
+          type="text"
+          matInput
+          id="name"
+          formControlName="name"
+          class="form-control"
+          placeholder="שם נכס"
+        >
+  </mat-form-field>
+      <mat-form-field>
+        <input
+          type="text"
+          matInput
+          id="address"
+          formControlName="address"
+          class="form-control"
+          placeholder="כתובת"
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          type="text"
+          id="rent"
+          matInput
+          formControlName="rent"
+          class="form-control"
+          placeholder="שכירות"
+        >
+      </mat-form-field>
+  <mat-form-field>
+    <input
+      type="text"
+      matInput
+      id="tenant"
+      formControlName="tenant"
+      class="form-control"
+      [formControl]="tenantInput"
+      [matAutocomplete]="auto"
+      placeholder="דייר (אופציונלי)">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let tenant of tenantsService.getTenants()"
+        [value]="tenant.getName()"
+        (click)="addToInput(tenant)">
+        {{ tenant.getName() }} <span class="mat-caption">{{ tenant.getPhone() }}</span>
+      </mat-option>
+      <mat-divider></mat-divider>
+      <mat-option (click)="onRemoveTenant()">ללא דייר</mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <button
+    color="primary"
+    mat-raised-button
+    matRipple
+    type="submit"
+    class="link-button"
+    [disabled]="!propertyForm.valid">
+    {{ editMode ? 'ערוך' : 'הוסף' }}
+  </button>
+  <button
+    color="warn"
+    mat-raised-button
+    matRipple
+    type="button"
+    class="link-button"
+    (click)="onCancel()"
+  >ביטול
+  </button>
+</form>

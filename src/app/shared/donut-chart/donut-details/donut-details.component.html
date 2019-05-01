@@ -1,0 +1,8 @@
+<mat-list role="list" dir="rtl">
+  <mat-list-item
+    *ngFor="let value of values; let i = index"
+  ><div
+    class="small-box"
+    [ngStyle]="{'background-color': colors[i]}"
+  ></div>{{ value }}</mat-list-item>
+</mat-list>

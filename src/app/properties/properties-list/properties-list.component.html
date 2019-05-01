@@ -1,0 +1,41 @@
+<mat-expansion-panel
+    *ngFor="let property of properties; let i = index"
+    style="margin-bottom: 0.8rem;">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+          {{ property.getName() }}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ property.getRent() }}₪
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <ng-template matExpansionPanelContent>
+      <p>
+        כתובת: {{ property.getAddress() }}
+      </p>
+      <p *ngIf="property.getTenant() !== null">
+        דייר: {{ property.getTenant().getName() }}
+        <span class="mat-caption">
+          {{ property.getTenant().getPhone() }}
+        </span>
+      </p>
+      <mat-action-row>
+        <button
+          mat-raised-button
+          matRipple
+          color="primary"
+          (click)="onEditProperty(i)"
+          type="button"
+        >ערוך
+        </button>
+        <button
+          mat-raised-button
+          matRipple
+          color="warn"
+          (click)="onDeleteProperty(i)"
+          type="button"
+        >מחק
+        </button>
+      </mat-action-row>
+    </ng-template>
+  </mat-expansion-panel>

@@ -1,0 +1,74 @@
+<h2>{{ editMode ? 'ערוך עבודה' : 'הוסף עבודה' }}</h2>
+<form
+  [formGroup]="maintenanceForm"
+  (ngSubmit)="onSubmit()"
+>
+  <mat-form-field>
+    <input
+      type="text"
+      matInput
+      id="description"
+      formControlName="description"
+      class="form-control"
+      placeholder="תיאור העבודה"
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      type="text"
+      matInput
+      id="company"
+      formControlName="company"
+      class="form-control"
+      placeholder="חברה מבצעת"
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      type="text"
+      matInput
+      id="cost"
+      formControlName="cost"
+      class="form-control"
+      placeholder="עלות"
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      type="text"
+      matInput
+      id="property"
+      formControlName="property"
+      class="form-control"
+      [formControl]="propertyInput"
+      [matAutocomplete]="auto"
+      placeholder="נכס (אופציונלי)">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let property of propertyService.getProperties()"
+        [value]="property.getName()"
+        (click)="addToInput(property)">
+        {{ property.getName() }} <span class="mat-caption">{{ property.address }}</span>
+      </mat-option>
+      <mat-divider></mat-divider>
+      <mat-option (click)="onRemoveProperty()">ללא נכס</mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+      <button
+        color="primary"
+        mat-raised-button
+        matRipple
+        type="submit"
+        class="link-button"
+        [disabled]="!maintenanceForm.valid">
+        {{ editMode ? 'ערוך' : 'הוסף' }}
+      </button>
+      <button
+        color="warn"
+        mat-raised-button
+        matRipple
+        type="button"
+        class="link-button"
+        (click)="onCancel()"
+      >ביטול</button>
+</form>

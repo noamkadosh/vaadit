@@ -1,0 +1,37 @@
+<svg
+      height="100%"
+      width="100%"
+      [attr.viewBox]="getViewBox()"
+    >
+      <g>
+        <circle
+          *ngFor="let item of items; let i = index"
+          [attr.cx]="getCenter()"
+          [attr.cy]="getCenter()"
+          [attr.r]="radius"
+          fill="transparent"
+          [attr.stroke-width]="width"
+          [attr.stroke-dasharray]="getPerimeter()"
+          [attr.stroke-dashoffset]="getOffset(i)"
+          [attr.stroke]="item.color"
+        ></circle>
+      </g>
+      <g *ngIf="centerText">
+        <text
+          [attr.fill]="fontColor"
+          [attr.font-size]="fontSize"
+          text-anchor="middle"
+          [attr.x]="getCenter()"
+          [attr.y]="getCenter()"
+        >
+          <tspan
+            [attr.x]="getCenter()"
+            dy="0"
+          >{{ centerText.value | number:'1.0-0' }}{{ symbol }}</tspan>
+          <tspan
+            [attr.x]="getCenter()"
+            [attr.dy]="fontSize"
+          >{{ centerText.name }}</tspan>
+        </text>
+      </g>
+    </svg>

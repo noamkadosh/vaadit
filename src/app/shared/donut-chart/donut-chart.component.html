@@ -1,0 +1,16 @@
+<mat-grid-list cols="3" rowHeight="25vh">
+  <mat-grid-tile colspan="2">
+    <app-donut
+      [centerText]="centerText"
+      [items]="items"
+      [symbol]="symbol"
+      style="padding: 0 1rem;"
+    ></app-donut>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1">
+    <app-donut-details
+      [values]="values"
+      [colors]="getColorsArray()"
+    ></app-donut-details>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,23 @@
+@import '~src/sass/functions';
+@import '~src/sass/variables';
+@import '~src/sass/mixins';
+
+mat-nav-list {
+  margin-right: 8vw;
+  margin-left: 4vw;
+
+  a {
+    width: 60%;
+    color: $light-text-color !important;
+  }
+
+  mat-divider {
+    border-top-color: $light-text-color;
+  }
+
+  .active {
+    background-color: $primary-color;
+    border-bottom: 1px solid white;
+  }
+}
+

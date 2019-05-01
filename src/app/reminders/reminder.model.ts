@@ -32,12 +32,39 @@ export class Reminder {
     return this.priority;
   }
 
+  getPriorityValue() {
+    switch (this.priority) {
+      case 'נמוכה': {
+        return 'low';
+      }
+      case 'גבוהה': {
+        return 'high';
+      }
+      default: {
+        return 'medium';
+      }
+    }
+  }
+
   /**
    * this function sets the priority of the reminder
    * @param priority - the reminder's priority
    */
-  setPriority(priority: ReminderPriority) {
-    this.priority = priority;
+  setPriority(priority: string) {
+    switch (priority) {
+      case 'low': {
+        this.priority = ReminderPriority.Low;
+        break;
+      }
+      case 'high': {
+        this.priority = ReminderPriority.High;
+        break;
+      }
+      default: {
+        this.priority = ReminderPriority.Medium;
+        break;
+      }
+    }
   }
 
   /**

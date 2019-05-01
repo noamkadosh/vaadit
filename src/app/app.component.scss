@@ -1,8 +1,24 @@
+@import '~src/sass/functions';
+@import '~src/sass/variables';
+@import '~src/sass/mixins';
+
+mat-sidenav {
+  width: 70vw;
+}
+
+.mat-drawer {
+  background-color: $primary-color;
+  color: $light-text-color;
+}
+
 .app-wrapper {
-height: calc(100vh - 24px);
+height: calc(100vh - 2rem);
 }
 
 .content {
   position: relative;
+  padding: 1rem 1rem 0.5rem;
   background-color: #fcfcfc;
+  overflow-x: auto;
+  overflow-y: auto;
 }

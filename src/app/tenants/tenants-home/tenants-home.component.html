@@ -1,0 +1,35 @@
+<div style="height: 35vh;">
+      <h2>
+        דיירים <br>
+        <span class="mat-caption">{{ date }}</span>
+      </h2>
+  <app-donut-chart
+    [values]="['פנוי', 'תפוס']"
+    [centerText]="{ name: 'נכסים תפוסים', value: occupiedPropertyValue }"
+    [items]="items"
+    [symbol]="''"
+    dir="ltr"
+  ></app-donut-chart>
+</div>
+<mat-divider style="margin: 2vh 0;"></mat-divider>
+<div style="height: 34.5vh; overflow: auto;">
+  <app-tenants-list></app-tenants-list>
+</div>
+<mat-divider style="margin: 2vh 0;"></mat-divider>
+<div class="button-row">
+    <button
+      color="primary"
+      mat-raised-button
+      matRipple
+      routerLink="/tenants/new"
+      type="button">
+      הוסף דייר
+    </button>
+    <button
+      color="primary"
+      mat-raised-button
+      matRipple
+      type="button">
+      ערוך דיירים
+    </button>
+</div>

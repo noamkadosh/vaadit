@@ -1,10 +1,12 @@
-<div class="app-wrapper text-right">
+<div class="app-wrapper text-right mat-app-background mat-typography" dir="rtl">
   <app-header></app-header>
-  <div class="content">
-    <div class="container" style="max-height: calc(100vh - 80px)">
+  <mat-sidenav-container style="height: calc(100vh - 5rem);">
+    <mat-sidenav #sidenav position="start">
+      <app-navigation></app-navigation>
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
       <router-outlet></router-outlet>
-    </div>
-  </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
 <app-footer></app-footer>
-

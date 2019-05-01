@@ -1,0 +1,35 @@
+<div style="height: 35vh;">
+      <h2>
+        עבודות תחזוקה <br>
+        <span class="mat-caption">{{ date }}</span>
+      </h2>
+  <app-donut-chart
+    [values]="['פתוחה', 'טופלה']"
+    [centerText]="{ name: 'בעיות פתוחות', value: openIssuesNumber }"
+    [items]="items"
+    [symbol]="''"
+    dir="ltr"
+  ></app-donut-chart>
+</div>
+<mat-divider style="margin: 2vh 0;"></mat-divider>
+<div style="height: 34.5vh; overflow: auto;">
+  <app-maintenance-list></app-maintenance-list>
+</div>
+<mat-divider style="margin: 2vh 0;"></mat-divider>
+<div class="button-row">
+  <button
+    color="primary"
+    mat-raised-button
+    matRipple
+    routerLink="/maintenance/new"
+    type="button">
+    הוסף עבודת תחזוקה
+  </button>
+    <button
+      color="primary"
+      mat-raised-button
+      matRipple
+      type="button">
+      ערוך עבודות
+    </button>
+</div>

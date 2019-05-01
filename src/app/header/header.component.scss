@@ -1,0 +1,49 @@
+@import '~src/sass/functions';
+@import '~src/sass/variables';
+@import '~src/sass/mixins';
+
+mat-toolbar, mat-toolbar-row {
+  min-height: 3rem;
+  height: 3rem;
+}
+
+.flex-sides {
+  flex: 1;
+}
+
+.flex-center {
+  flex: 4;
+}
+
+.navbar-collapse {
+  /* Collapsible navbar appears on mobile */
+  position: absolute;
+  z-index: 1;
+  height: calc(100vh - 80px);
+  width: 80%;
+  margin-left: 20%;
+}
+
+.navbar-nav {
+  padding-right: 20%;
+}
+
+.nav-item {
+  padding: 1vh 0;
+}
+
+.nav-link {
+  color: white;
+}
+
+.navbar-light {
+  color: white;
+}
+
+#welcome {
+  color: white;
+}
+
+.navbar-toggler {
+  border: none;
+}
